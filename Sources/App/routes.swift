@@ -19,5 +19,9 @@ func routes(_ app: Application) throws {
     app.post("approveReview", use: reviewController.approveReview)
     app.post("removeReview", use: reviewController.removeReview)
     
+    let basketController = BasketController()
+    app.post("addToBasket", use: basketController.addToBasket)
+    app.post("deleteFromBasket", use: basketController.deleteFromBasket)
+    
     try app.register(collection: TodoController())
 }
