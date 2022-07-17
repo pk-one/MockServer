@@ -13,6 +13,11 @@ func routes(_ app: Application) throws {
     let authController = AuthController()
     app.post("register", use: authController.register)
     app.post("auth", use: authController.auth)
-
+    
+    let reviewController = ReviewController()
+    app.post("addReview", use: reviewController.addReview)
+    app.post("approveReview", use: reviewController.approveReview)
+    app.post("removeReview", use: reviewController.removeReview)
+    
     try app.register(collection: TodoController())
 }
